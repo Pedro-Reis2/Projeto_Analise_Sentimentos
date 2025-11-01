@@ -1,20 +1,25 @@
 # 1. Imagem base: Um Python 3.9 leve
-FROM python:3.9-slim
+FROM python:3.11-slim
 
 # 2. Define o diretório de trabalho dentro do contêiner
 WORKDIR /app
 
 # 3. Copia o arquivo de dependências PRIMEIRO (para cache do Docker)
-COPY requirements.txt .
+COPY app/requirements.txt .
 
 # 4. Instala as dependências
+
+ENV NLTK_DATA="/usr/share/nltk_data"
+# 4. Instala as dependências (Passo A)
 RUN pip install --no-cache-dir -r requirements.txt
 
-# 5. (Bônus) Baixa os dados do NLTK (stopwords) durante o build
-RUN python -m nltk.downloader stopwords
+# 5. Baixa os dados do NLTK (Passo B)
+RUN python -c "import nltk; nltk.download('stopwords', quiet=True)"
 
 # 6. Copia o resto do código da sua app (main.py)
-COPY . .
+COPY app/ .
+
+COPY models/ /models/
 
 # 7. Expõe a porta que a API vai rodar
 EXPOSE 8000
