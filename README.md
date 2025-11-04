@@ -10,21 +10,6 @@ O objetivo foi demonstrar o ciclo de vida completo de um produto de I.A.:
 2.  **Serviço:** A API foi construída com **FastAPI**, recebendo um texto JSON e retornando uma predição.
 3.  **Containerização:** A aplicação é empacotada com **Docker**, pronta para deploy em qualquer ambiente de nuvem.
 
-## Estrutura do Repositório
-
-/seu-projeto/
-├── app/                  # Código fonte da API
-│   ├── main.py           # Lógica da API (FastAPI)
-│   ├── Dockerfile        # Instruções para o contêiner
-│   └── requirements.txt  # Dependências da API
-├── data/
-│   └── IMDB Dataset.csv  # (Ou um .txt dizendo "Baixar de... ")
-├── models/
-│   └── sentiment_pipeline.pkl # O modelo treinado
-├── notebooks/
-│   └── treinamento.ipynb # Notebook de exploração e treinamento
-└── README.md             # Isso que você está lendo
-
 ## Como Rodar (Usando Docker - Recomendado)
 
 Este é o método preferido, pois simula um ambiente de produção.
