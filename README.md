@@ -18,7 +18,7 @@ Este é o método preferido, pois simula um ambiente de produção.
 
 1.  **Clone o repositório:**
     ```bash
-    git clone [URL-DO-SEU-GITHUB]
+    git clone https://github.com/Pedro-Reis2/Projeto_Analise_Sentimentos.git
     cd seu-projeto
     ```
 
